@@ -1,0 +1,61 @@
+{#
+ Copyright 2023 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+#}
+
+{%- extends BASE_HTML -%}
+
+{% set main_id = 'faq' %}
+{% set page_id = 'page-faq' %}
+{% set title = 'Frequently Asked Questions' %}
+
+{% macro external_icon() -%}
+<svg class="icon"xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="12px" fill="#660000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+{%- endmacro %}
+
+{% block head %}
+<link rel="stylesheet" href={{url_for('static', filename='css/static.min.css', t=config['VERSION'])}}>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Frequently Asked Questions </h1>
+  <dl>
+    <dt>Q: What is Data Commons?
+    </dt><dd>Data Commons, an open source initiative from Google, organizes the
+      world’s publicly available information and makes it more accessible and
+      useful.
+
+    </dd><dt>Q: Who supports and maintains Data Commons?
+    </dt><dd>Data Commons is a Google initiative, and so the open source code that Data Commons runs on is developed by Google.  The Data Commons for Sustainability is hosted by the research IT team at the Doerr School of Sustainability.  If you have any questions or comments about this Data Commons, please contact sdss-gcp_datacommons-admins@stanford.edu
+
+    </dd><dt>Q: How can Data Commons be beneficial for my research or project?
+    </dt><dd>Data Commons can bring your data to a wider audience of researchers, community members, and policymakers.  The Data Commons platform can help bring the impact of your research outside of Stanford.
+
+    </dd><dt>Q: What datasets are a good fit for Data Commons?
+    </dt><dd>Variables that meet the following criteria are a good fit for Data Commons:
+      <ul>
+        <li>These variables must be aggregated to an entity in Data Commons, such as zip code, county, state, etc</li>
+        <li>There must be an interest to compare this variable with other variables already in Data Commons</li>
+        <li>This variable must be tabular - image files, video files, or other non-CSV file types are not suitable for Data Commons.</li>
+    </ul>
+
+    </dd><dt>Q: How do I upload my data to Data Commons?
+    </dt><dd>Please email sdss-gcp_datacommons-admins@stanford.edu with information about your data to get started!
+
+    </dd><dt>Q: Who can view my data on Data Commons?
+    </dt><dd>All data on Data Commons is publicly available.  If you’d like to explore Data Commons in a private staging environment, please contact sdss-gcp_datacommons-admins@stanford.edu.
+
+  </div>
+{% endblock %}

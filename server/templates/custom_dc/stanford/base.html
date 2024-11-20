@@ -56,9 +56,20 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;600&family=Roboto&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined&display=block">
+
+  <script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById("search-form").addEventListener("submit",function(event) {
+      event.preventDefault();
+      var query = document.getElementById("search-form-query").value;
+      if (!query) {
+        return;
+      }
+      window.location = "/explore/#q="+ encodeURI(query);
+    })
+  }) </script>
   {% block head %}
   {% endblock %}
   {% if OVERRIDE_CSS_PATH %}
@@ -83,6 +94,7 @@
             {% endif %}
             </a>
           </div>
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dc-main-nav">
             <span class="navbar-toggler-icon"></span>
           </button>

@@ -18,22 +18,36 @@
   --palo-alto: #175e54;
   --palo-alto-dark: #014240;
   --palo-alto-light: #7fa2a2;
+  --cool-gray: #53565A;
 }
 
+body {
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+.su-intro-text {
+  font-size: 1.5625em;
+  font-weight: 400;
+  letter-spacing: -.012em;
+}
 #main-nav {
-  background-color: var(--palo-alto-dark);
+  background-color: var(--cool-gray);
 }
 
 #main-header {
-  .navbar-brand a {
-    color: #fff;
-  }
-
-  .nav-item .nav-link,
-  #main-nav .navbar-brand .sep {
-    color: rgba(255, 255, 255, 0.5);
-  }
+  box-shadow: 0 5px 5px 0 rgba(6, 6, 6, 0.18);
+  z-index: 10;
+  position: sticky;
 }
+.navbar-brand a {
+  color: #fff;
+}
+
+.nav-item .nav-link,
+#main-nav .navbar-brand .sep {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 
 .brand-byline span {
   display: flex;
