@@ -104,3 +104,4 @@ build/cdc/dev/.env
 *.tfvars
 deploy/terraform-custom-datacommons/modules/backend.tf
 
+custom_dc/env.list
