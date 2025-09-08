@@ -3,12 +3,8 @@ __pycache__/
 .pytest_cache
 *.pyc
 .env/
-.env_website/
-.env_nl/
 screenshots/*.png
 screenshots/screenshot_url.json
-.gemini
-
 
 # Production static files
 **/dist/**
@@ -22,7 +18,6 @@ screenshots/screenshot_url.json
 .idea
 !.vscode/launch.json
 .env.list
-build/cdc/dev/.env-test
 
 # Mac
 .DS_Store
@@ -109,5 +104,4 @@ build/cdc/dev/.env
 *.tfvars
 deploy/terraform-custom-datacommons/modules/backend.tf
 
-# NL tools ignores
-tools/nl/nl_metadata/.env
+custom_dc/env.list
