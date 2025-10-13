@@ -15,6 +15,7 @@
 import asyncio
 import itertools
 import logging
+import re
 import time
 from typing import List
 
@@ -40,7 +41,7 @@ bp = Blueprint("autocomplete", __name__, url_prefix='/api')
 async def autocomplete():
   """Predicts the user query for location and stat vars."""
   start_time = time.time()
-  lang = request.args.get('hl')
+  lang = request.args.get('hl', 'en')
   original_query = request.args.get('query', '')
 
   # Don't trigger autocomplete on short queries or if the last word is a stop word.
@@ -57,7 +58,9 @@ async def autocomplete():
   task_metadata = []
 
   # Task A: Core Concept Stat Var Search
-  if is_feature_enabled(ENABLE_STAT_VAR_AUTOCOMPLETE, request=request):
+  concept_result = None
+  if lang == 'en' and is_feature_enabled(ENABLE_STAT_VAR_AUTOCOMPLETE,
+                                         request=request):
     # Note: analyze_query_concepts is synchronous and makes a blocking API call.
     # We run it once at the start.
     concept_result = stat_vars.analyze_query_concepts(original_query)
@@ -72,7 +75,18 @@ async def autocomplete():
       })
 
   # Task B: N-gram and Custom Place Search
-  ngram_queries = helpers.get_ngram_queries(original_query)
+  query_for_ngrams = original_query
+  if concept_result and concept_result.get('place_name'):
+    place_name = concept_result['place_name']
+    place_name_end_pos = original_query.lower().find(
+        place_name.lower()) + len(place_name)
+    query_for_ngrams = original_query[place_name_end_pos:]
+    query_for_ngrams = re.sub(r"^\s*'s\s*", "", query_for_ngrams).strip()
+    logging.info(
+        f'[Autocomplete] Adjusted query for n-grams: "{query_for_ngrams}" (place: "{place_name}")'
+    )
+
+  ngram_queries = helpers.get_ngram_queries(query_for_ngrams)
   logging.info(f'[Autocomplete] N-gram queries: {ngram_queries}')
 
   for ngram_query in ngram_queries:
@@ -94,7 +108,8 @@ async def autocomplete():
     })
 
     # Stat var n-gram search
-    if is_feature_enabled(ENABLE_STAT_VAR_AUTOCOMPLETE, request=request):
+    if lang == 'en' and is_feature_enabled(ENABLE_STAT_VAR_AUTOCOMPLETE,
+                                           request=request):
       tasks.append(asyncio.to_thread(stat_vars.search_stat_vars, ngram_query))
       task_metadata.append({'source': 'ngram_sv', 'matched_query': ngram_query})
 
@@ -112,6 +127,7 @@ async def autocomplete():
         p.matched_query = meta['original_phrase']
       else:
         p.matched_query = meta['matched_query']
+      p.has_place = concept_result['has_place'] if concept_result else False
       all_predictions.append(p)
 
   logging.info(
@@ -141,7 +157,8 @@ async def autocomplete():
           name=prediction.description,
           match_type='location_search' if is_place else 'stat_var_search',
           matched_query=prediction.matched_query,
-          dcid=prediction.place_dcid)
+          dcid=prediction.place_dcid,
+          has_place=prediction.has_place)
       final_predictions.append(current_prediction)
 
   duration_ms = (time.time() - start_time) * 1000

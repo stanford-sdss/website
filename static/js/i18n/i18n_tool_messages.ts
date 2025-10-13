@@ -17,12 +17,6 @@
 import { defineMessages } from "react-intl";
 
 export const toolMessages = defineMessages({
-  switchToolVersion: {
-    id: "switch_tool_version",
-    defaultMessage: "Switch tool version",
-    description:
-      "label on button allowing users to switch to an earlier version of our tools",
-  },
   mapToolTitle: {
     id: "map_visualization_tool_name",
     defaultMessage: "Map Explorer",
@@ -31,8 +25,14 @@ export const toolMessages = defineMessages({
   mapToolSubtitle: {
     id: "map_visualization_tool_description",
     defaultMessage:
-      "The map explorer helps you visualize how a statistical variable can vary across geographic regions.",
+      "The Map Explorer helps you visualize how a statistical variable can vary across geographic regions.",
     description: "a description of what our map explorer tool is used for",
+  },
+  mapToolGoBackMessage: {
+    id: "map_tool_go_back_message",
+    defaultMessage: "Go back to the new Map Explorer",
+    description:
+      "label on a button that takes the user to a newer version of the Map Explorer",
   },
   scatterToolTitle: {
     id: "scatter_visualization_tool_name",
@@ -41,9 +41,15 @@ export const toolMessages = defineMessages({
   },
   scatterToolSubtitle: {
     id: "scatter_visualization_tool_description",
-    defaultMessage: `The scatter plot explorer helps you visualize the correlation between two statistical variables.`,
+    defaultMessage: `The Scatter Plot Explorer helps you visualize the correlation between two statistical variables.`,
     description:
       "a description of what our scatter plot explorer tool is used for",
+  },
+  scatterToolGoBackMessage: {
+    id: "scatter_tool_go_back_message",
+    defaultMessage: "Go back to the new Scatter Plot Explorer",
+    description:
+      "label on a button that takes the user to a newer version of the Scatter Plot Explorer",
   },
   timelineToolTitle: {
     id: "timeline_visualization_tool_name",
@@ -54,9 +60,15 @@ export const toolMessages = defineMessages({
   timelineToolSubtitle: {
     id: "timeline_visualization_tool_description",
     defaultMessage:
-      "The timelines explorer helps you explore trends for statistical variables.",
+      "The Timelines Explorer helps you explore trends for statistical variables.",
     description:
       "a description of what our timelines explorer tool is used for",
+  },
+  timelineToolGoBackMessage: {
+    id: "timeline_tool_go_back_message",
+    defaultMessage: "Go back to the new Timelines Explorer",
+    description:
+      "label on a button that takes the user to a newer version of the Timelines Explorer",
   },
   infoBoxInstructionHeader: {
     id: "info_box_instruction_header",
@@ -134,6 +146,55 @@ export const toolMessages = defineMessages({
     defaultMessage: "Need ideas? Try these:",
     description:
       "Invitation for users to explore some example charts and visualizations.",
+  },
+  unsupportedEnclosedPlaceAlert: {
+    id: "unsupported_enclosed_place_alert",
+    defaultMessage:
+      "Sorry, we don't support {placeName}. Please select a different place.",
+    description:
+      "Message to users that the place they selected is unsupported by our tool",
+  },
+  enterAPlaceInstruction: {
+    id: "enter_a_place_instruction",
+    defaultMessage: "Enter a place",
+    description:
+      "An instruction for users to type a place's name into a text box",
+  },
+  enterPotentiallyMultiplePlacesInstruction: {
+    id: "enter_potentially_multiple_places_instruction",
+    defaultMessage: "Select place(s):",
+    description:
+      "An instruction for users to type one or many place's name into a text box",
+  },
+  childPlaceTypeInstruction: {
+    id: "childPlaceTypeInstruction",
+    defaultMessage: "of type",
+    description:
+      "part of the label on a form saying 'Enter a place of type <type>' asking users to select a place type (e.g. city, country)",
+  },
+  selectAPlaceTypeInstruction: {
+    id: "selectAPlaceTypeInstruction",
+    defaultMessage: "Select a place type",
+    description:
+      "default value on a dropdown telling the user to select a place type from the given options",
+  },
+  selectAVariableInstruction: {
+    id: "selectAVariableInstruction",
+    defaultMessage: "Select variable",
+    description:
+      "Instruction inviting the user to select a statistical variable to plot",
+  },
+  selectMultipleVariablesInstruction: {
+    id: "selectMultipleVariablesInstruction",
+    defaultMessage: "Select variables",
+    description:
+      "Instruction inviting the user to select more than 1 statistical variable to plot",
+  },
+  placesIn: {
+    id: "places_in",
+    defaultMessage: "Places in",
+    description:
+      "Label on a textbox for a place, as in 'plot places in <user selected place>",
   },
 });
 
