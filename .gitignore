@@ -4,6 +4,10 @@ __pycache__/
 *.pyc
 .venv*/
 .env/
+<<<<<<< HEAD
+screenshots/*.png
+screenshots/screenshot_url.json
+=======
 .env_website/
 .env_nl/
 
@@ -13,6 +17,7 @@ __pycache__/
 !.gemini/
 !.gemini/config.yaml
 
+>>>>>>> upstream/master
 
 # Production static files
 **/dist/**
@@ -27,7 +32,10 @@ __pycache__/
 !.vscode/launch.json
 .env
 .env.list
+<<<<<<< HEAD
+=======
 custom_dc/.env-test
+>>>>>>> upstream/master
 
 # Mac
 .DS_Store
@@ -113,6 +121,9 @@ custom_dc/data/*.db
 *.tfvars
 deploy/terraform-custom-datacommons/modules/backend.tf
 
+<<<<<<< HEAD
+custom_dc/env.list
+=======
 # NL tools ignores
 tools/nl/nl_metadata/.env
 
@@ -121,3 +132,4 @@ GEMINI.md
 .gemini/
 # Webdriver recordings (tracked as tar.gz)
 server/tests/test_data/webdriver_recordings/
+>>>>>>> upstream/master
