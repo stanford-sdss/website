@@ -44,7 +44,7 @@ dependencies = [
     "protobuf>=4.25.3",
     "pydantic==2.11.1",
     "PyGithub==1.58.2",
-    "pyOpenSSL==23.2.0",
+    "pyOpenSSL==25.3.0",
     "python-dateutil>=2.9.0.post0, <3.0.0",
     "PyYAML==6.0.2",
     "redis==4.5.4",

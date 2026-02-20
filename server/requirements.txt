@@ -38,7 +38,7 @@ pillow==10.4.0
 protobuf>=4.25.3
 pydantic==2.11.1
 PyGithub==1.58.2
-pyOpenSSL==23.2.0
+pyOpenSSL==25.3.0
 python-dateutil>=2.9.0.post0, <3.0.0
 pytest-flakefinder==1.1.0
 pytest-rerunfailures==10.2
