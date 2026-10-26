@@ -89,7 +89,7 @@ export const Category = memo(function Category(
       )}
       {globalThis.viaGoogle && (
         <p>
-          This data was imported by the Google DataCommons team. For more info,
+          This data was imported from Data Commons by Google. For more info,
           see <a href="https://datacommons.org">Datacommons.org</a>.
         </p>
       )}

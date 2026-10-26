@@ -1,6 +1,8 @@
 frozendict==2.3.4
 fsspec==2024.2.0
 datasets==2.18.0
+# Pin pyarrow: newer releases require NumPy>=2, but spacy/thinc here need NumPy<2.
+pyarrow==17.0.0
 google-cloud-aiplatform==1.125.0
 google-cloud-storage==3.0.0
 pandas==2.1.1

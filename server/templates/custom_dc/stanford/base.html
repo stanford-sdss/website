@@ -223,8 +223,7 @@
               <!-- {% set homepage_url = "<a href={href}>Data Commons</a>".format(href=url_for('static.homepage'))  %} -->
               {# TRANSLATORS: The label for a link to project homepage. #}
               <span class="brand-byline">
-                <img style="height: 1rem" src="/images/google.png" />
-                <span class="">{% trans project="Data Commons" %}<a href="https://datacommons.org">Data Commons</a> from Google{% endtrans %}</span>
+                <span class="">{% trans %}Built on <a href="https://datacommons.org" style="white-space: nowrap">Data Commons by Google</a>{% endtrans %}</span>
               </span>
               <div class="sub-footer-links">
                 {% block subfooter_extra %}{% endblock %}
